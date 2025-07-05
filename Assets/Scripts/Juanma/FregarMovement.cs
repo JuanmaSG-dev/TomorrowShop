@@ -41,5 +41,8 @@ public class FregarMovement : MonoBehaviour
         rb.linearVelocity = moveDirection;
     }
 
-    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
