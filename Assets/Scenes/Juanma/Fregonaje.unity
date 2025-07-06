@@ -133,7 +133,11 @@ GameObject:
   - component: {fileID: 436762472}
   m_Layer: 0
   m_Name: Agua
+<<<<<<< Updated upstream
   m_TagString: Untagged
+=======
+  m_TagString: Trail
+>>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,11 +273,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 436762467}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 2785a50d80a144b4a93d4ee45681f0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trailColliderPrefab: {fileID: 1133535731395278205, guid: 6867b5c7706b33a4e93f2a03511f5d74, type: 3}
   minDistance: 0.5
+=======
+  m_Script: {fileID: 11500000, guid: 914bd78cf08c0ff4fb0d5a74529d939f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailColliderPrefab: {fileID: 4444111156593097631, guid: 06eea86afd508244a98d72a3da808d07, type: 3}
+  minDistance: 1
+>>>>>>> Stashed changes
 --- !u!61 &436762472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -690,7 +702,11 @@ GameObject:
   - component: {fileID: 1470635914}
   - component: {fileID: 1470635917}
   - component: {fileID: 1470635916}
+<<<<<<< Updated upstream
   - component: {fileID: 1470635920}
+=======
+  - component: {fileID: 1470635918}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -832,7 +848,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< Updated upstream
 --- !u!114 &1470635920
+=======
+--- !u!114 &1470635918
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -841,7 +861,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1470635913}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: e96cc3cd7a109f54ca16e0e058ffc435, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 5e1f293daecf94b448703b5b3448362a, type: 3}
+>>>>>>> Stashed changes
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 5
