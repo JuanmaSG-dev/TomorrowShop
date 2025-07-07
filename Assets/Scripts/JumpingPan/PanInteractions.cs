@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PanInteractions : MonoBehaviour
@@ -8,12 +9,13 @@ public class PanInteractions : MonoBehaviour
 
     public Transform friedPoint;
 
-    [Header("Ángulo de fuerza (en grados, respecto a la horizontal)")]
     public float minForceAngleDegrees = 50f;
     public float maxForceAngleDegrees = 120f;
 
     private float forceTimer = 0f;
     private float nextForceInterval;
+
+    private HashSet<GameObject> alreadyCaptured = new HashSet<GameObject>();
 
     private void Start()
     {
@@ -22,6 +24,11 @@ public class PanInteractions : MonoBehaviour
 
     private void Update()
     {
+        if (transform.childCount == 0)
+        {
+            return;
+        }
+
         forceTimer += Time.deltaTime;
         if (forceTimer >= nextForceInterval)
         {
@@ -37,48 +44,47 @@ public class PanInteractions : MonoBehaviour
     }
 
     private void ApplyForceToChildren()
-    {        
-        if (transform.childCount == 0)
-        {
-            return;
-        }
-
+    {
         float angleDeg = Random.Range(minForceAngleDegrees, maxForceAngleDegrees);
         float angleRad = angleDeg * Mathf.Deg2Rad;
-
-        Vector3 direction = new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad), 0f);
-        Debug.DrawRay(this.transform.position, direction * forceMagnitude, Color.red);
-
 
         Vector2 force = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)) * forceMagnitude;
 
         foreach (Transform child in transform)
         {
-            Debug.Log($"Applying force to child: {child.name}");
+            child.GetComponent<SpriteRenderer>().color = Color.white;
+
             Rigidbody2D rb = child.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.freezeRotation = true;
+                rb.linearVelocity = Vector2.zero;
                 rb.AddForce(force, ForceMode2D.Impulse);
-                child.SetParent(null);
             }
+            child.SetParent(null);
+
+            alreadyCaptured.Clear();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Food"))
+        if (collision.gameObject.CompareTag("Food") && !alreadyCaptured.Contains(collision.gameObject))
         {
-            // colocar el objeto en la posición y rotacion de friedPoint
+            alreadyCaptured.Add(collision.gameObject);
+
             collision.transform.position = friedPoint.position;
             collision.transform.rotation = friedPoint.rotation;
 
             var rb = collision.gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.bodyType = RigidbodyType2D.Kinematic;
                 rb.linearVelocity = Vector2.zero;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.freezeRotation = true;
             }
+
             collision.transform.SetParent(transform);
         }
     }
