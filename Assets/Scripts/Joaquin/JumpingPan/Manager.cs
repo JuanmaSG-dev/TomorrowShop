@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager instance { get; private set; }
+
     public Transform pan;
 
     public GameObject foodPrefab; // Prefab for the food to be spawned
@@ -16,6 +18,11 @@ public class Manager : MonoBehaviour
     public TMP_Text timerText;
     public float remainingTime = 60f;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         timerText.text = "00:00";
@@ -24,6 +31,11 @@ public class Manager : MonoBehaviour
     }
 
     void Update()
+    {
+        AdvanceTimer();
+    }
+
+    private void AdvanceTimer()
     {
         if (remainingTime > 0)
         {
@@ -87,5 +99,6 @@ public class Manager : MonoBehaviour
     public void ReduceProgress(float val)
     {
         cookingProgress = Mathf.Max(0, cookingProgress - val);
+        cookingBar.value = cookingProgress / cookingTime;
     }
 }

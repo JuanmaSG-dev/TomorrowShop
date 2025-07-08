@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FoodInteractions : MonoBehaviour
 {
-    public Manager manager;
 
     void Update()
     {
@@ -13,24 +12,22 @@ public class FoodInteractions : MonoBehaviour
         Debug.DrawRay(ray2D.origin, ray2D.direction * 0.5f, Color.green);
         if (hit.collider != null && hit.collider.CompareTag("Kitchen"))
         {
-            manager.HandleCookingProgress();
+            Manager.instance.HandleCookingProgress();
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.LogWarning("Collision detected with: " + collision.gameObject.name);
         if (collision.CompareTag("Floor"))
         {
             Debug.LogWarning("Food has fallen to the floor!");
 
-            manager.ReduceProgress(3f);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            Manager.instance.ReduceProgress(20f);
 
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-
-            manager.SpawnFood();
+            Manager.instance.SpawnFood();
 
             Destroy(gameObject, 1f);
         }
