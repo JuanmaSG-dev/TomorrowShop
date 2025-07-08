@@ -14,9 +14,25 @@ public class FoodInteractions : MonoBehaviour
         if (hit.collider != null && hit.collider.CompareTag("Kitchen"))
         {
             manager.HandleCookingProgress();
-        } else
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        Debug.LogWarning("Collision detected with: " + collision.gameObject.name);
+        if (collision.CompareTag("Floor"))
         {
-            manager.StopCooking();
+            Debug.LogWarning("Food has fallen to the floor!");
+
+            manager.ReduceProgress(3f);
+
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+            manager.SpawnFood();
+
+            Destroy(gameObject, 1f);
         }
     }
 }
