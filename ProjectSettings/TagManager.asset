@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Food
+  - Kitchen
+  - Floor
   - Trail
   layers:
   - Default
@@ -12,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Kitchen
   - 
   - 
   - 
@@ -41,6 +44,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2316026599
+    locked: 0
+  - name: Player
+    uniqueID: 3803007427
+    locked: 0
+  - name: UI
+    uniqueID: 1828563285
     locked: 0
   m_RenderingLayers:
   - Default
