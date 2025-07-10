@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7069639023731518574}
   - component: {fileID: 5780113179432124119}
   - component: {fileID: 8376205883354002154}
-  - component: {fileID: 6536939197896978007}
+  - component: {fileID: -2460421722482593197}
   m_Layer: 2
   m_Name: Food
   m_TagString: Food
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9391501, y: 0.8150469}
   m_EdgeRadius: 0
---- !u!114 &6536939197896978007
+--- !u!114 &-2460421722482593197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,6 +172,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8672983845956297506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bde6aced56dac40af2107076bb0987, type: 3}
+  m_Script: {fileID: 11500000, guid: d50cd58d3d1ff274599dfa6cee09e6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

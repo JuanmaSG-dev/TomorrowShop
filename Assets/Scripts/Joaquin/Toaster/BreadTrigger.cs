@@ -42,10 +42,13 @@ public class BreadTrigger : MonoBehaviour
 
     private void ThrowBread()
     {
-        //TODO: Aplicar 2 intervalos de angulos para que no lance en 90 para arriba
-        float angleDeg = Random.Range(minForceAngleDegrees, maxForceAngleDegrees);
-        float angleRad = angleDeg * Mathf.Deg2Rad;
+        bool goLeft = Random.value < 0.5f;
 
+        float angleDeg = goLeft
+            ? Random.Range(minForceAngleLeftDegrees, maxForceAngleLeftDegrees)
+            : Random.Range(minForceAngleRightDegrees, maxForceAngleRightDegrees);
+
+        float angleRad = angleDeg * Mathf.Deg2Rad;
         Vector2 force = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)) * throwForce;
 
         GameObject bread = Instantiate(blockPrefab, firePoint.position, Quaternion.identity);
@@ -56,4 +59,5 @@ public class BreadTrigger : MonoBehaviour
             rb.AddForce(force, ForceMode2D.Impulse);
         }
     }
+
 }

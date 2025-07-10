@@ -12,22 +12,19 @@ public class FoodInteractions : MonoBehaviour
         Debug.DrawRay(ray2D.origin, ray2D.direction * 0.5f, Color.green);
         if (hit.collider != null && hit.collider.CompareTag("Kitchen"))
         {
-            Manager.instance.HandleCookingProgress();
+            JumpingPanManager.instance.HandleCookingProgress();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.LogWarning("Collision detected with: " + collision.gameObject.name);
         if (collision.CompareTag("Floor"))
         {
-            Debug.LogWarning("Food has fallen to the floor!");
-
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            Manager.instance.ReduceProgress(20f);
+            JumpingPanManager.instance.ReduceProgress(20f);
 
-            Manager.instance.SpawnFood();
+            JumpingPanManager.instance.SpawnFood();
 
             Destroy(gameObject, 1f);
         }
