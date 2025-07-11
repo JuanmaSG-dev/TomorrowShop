@@ -4,7 +4,7 @@ public class HandMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     float horizontalInput;
-    public float speed = 8f;
+    public float speed = 6f;
 
     void Start()
     {

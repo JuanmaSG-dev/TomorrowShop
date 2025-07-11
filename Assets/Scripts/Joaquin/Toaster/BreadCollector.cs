@@ -4,7 +4,6 @@ public class BlockCollector : MonoBehaviour
     public Transform towerRoot;
     private int blockCount = 0;
     public float blockHeight = 1f;
-    public float followSpeed = 2f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,21 +20,9 @@ public class BlockCollector : MonoBehaviour
                 rb.freezeRotation = true;
             }
 
-            StretchAnimation stretch = collision.collider.GetComponent<StretchAnimation>();
-            if (stretch != null)
-            {
-                stretch.enabled = true;
-            }
-
-
             collision.transform.SetParent(towerRoot);
             collision.transform.localPosition = new Vector3(0, blockCount * blockHeight, 0);
             blockCount++;
         }
-    }
-
-    void Update()
-    {
-        towerRoot.position = Vector2.Lerp(towerRoot.position, towerRoot.position, followSpeed * Time.deltaTime);
     }
 }
