@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 83197970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914bd78cf08c0ff4fb0d5a74529d939f, type: 3}
+  m_Script: {fileID: 11500000, guid: d24e507f21c52e5459244425e64ca12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trailColliderPrefab: {fileID: 4444111156593097631, guid: 06eea86afd508244a98d72a3da808d07, type: 3}
@@ -3596,7 +3596,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1840299367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1f293daecf94b448703b5b3448362a, type: 3}
+  m_Script: {fileID: 11500000, guid: aafb6a5cb0806684c99254ed005dd2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 5

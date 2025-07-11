@@ -8,6 +8,7 @@ TagManager:
   - Kitchen
   - Floor
   - Trail
+  - Plant
   layers:
   - Default
   - TransparentFX
