@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class JumpingPanScreenBorders : MonoBehaviour
 {
-    public float thickness = 1f;
+    public float Ythickness = 1f;
+    public float Xthickness = 3f;
     private Camera cam;
 
     void Start()
@@ -20,10 +21,10 @@ public class JumpingPanScreenBorders : MonoBehaviour
         float screenHeight = screenTopRight.y - screenBottomLeft.y;
 
         // Crear los 4 bordes
-        CreateBorder("Left", new Vector2(screenBottomLeft.x - thickness / 2, 0), new Vector2(thickness, screenHeight + 2 * thickness));
-        CreateBorder("Right", new Vector2(screenTopRight.x + thickness / 2, 0), new Vector2(thickness, screenHeight + 2 * thickness));
-        CreateBorder("Top", new Vector2(0, screenTopRight.y + thickness / 2), new Vector2(screenWidth + 2 * thickness, thickness));
-        CreateBorder("Bottom", new Vector2(0, screenBottomLeft.y - thickness / 2), new Vector2(screenWidth + 2 * thickness, thickness));
+        CreateBorder("Left", new Vector2(screenBottomLeft.x - Xthickness / 2, 0), new Vector2(Xthickness, screenHeight + 2 * Xthickness));
+        CreateBorder("Right", new Vector2(screenTopRight.x + Xthickness / 2, 0), new Vector2(Xthickness, screenHeight + 2 * Xthickness));
+        CreateBorder("Top", new Vector2(0, screenTopRight.y + Ythickness / 2), new Vector2(screenWidth + 2 * Ythickness, Ythickness));
+        CreateBorder("Bottom", new Vector2(0, screenBottomLeft.y - Ythickness / 2), new Vector2(screenWidth + 2 * Ythickness, Ythickness));
     }
 
     void CreateBorder(string name, Vector2 center, Vector2 size)

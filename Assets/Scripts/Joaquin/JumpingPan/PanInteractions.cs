@@ -17,11 +17,6 @@ public class PanInteractions : MonoBehaviour
 
     private HashSet<GameObject> alreadyCaptured = new HashSet<GameObject>();
 
-    private void Start()
-    {
-        SetNextForceInterval();
-    }
-
     private void Update()
     {
         if (transform.childCount == 0)
