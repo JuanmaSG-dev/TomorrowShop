@@ -16,9 +16,10 @@ public class FoodInteractions : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Floor"))
+        Debug.Log("Collision with: " + collision.collider.name);
+        if (collision.collider.CompareTag("Floor"))
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
