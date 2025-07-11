@@ -5,11 +5,14 @@ public class BreadTrigger : MonoBehaviour
 {
     public GameObject blockPrefab;
     public Transform firePoint;
-    public float throwForce = 5f;
 
     [Header("Force")]
-    public float minForceInterval = 1f;
-    public float maxForceInterval = 2f;
+    public float minThrowForce = 4f;
+    public float MaxThrowForce = 5f;
+
+    [Header("Time")]
+    public float minLaunchInterval = 1f;
+    public float maxLaunchInterval = 2f;
 
     [Header("Left Side Angles")]
     public float minForceAngleLeftDegrees = 100f;
@@ -44,7 +47,7 @@ public class BreadTrigger : MonoBehaviour
 
     private void SetNextForceInterval()
     {
-        nextForceInterval = Random.Range(minForceInterval, maxForceInterval);
+        nextForceInterval = Random.Range(minLaunchInterval, maxLaunchInterval);
     }
 
     private void ThrowBread()
@@ -76,6 +79,8 @@ public class BreadTrigger : MonoBehaviour
             : Random.Range(minForceAngleRightDegrees, maxForceAngleRightDegrees);
 
         float angleRad = angleDeg * Mathf.Deg2Rad;
+
+        float throwForce = Random.Range(minThrowForce, MaxThrowForce);
 
         Vector2 force = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)) * throwForce;
 

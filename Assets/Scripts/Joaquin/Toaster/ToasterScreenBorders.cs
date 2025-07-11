@@ -22,7 +22,7 @@ public class ToasterScreenBorders : MonoBehaviour
         // Crear los 4 bordes
         CreateBorder("Left", new Vector2(screenBottomLeft.x - thickness / 2, 0), new Vector2(thickness, screenHeight + 2 * thickness));
         CreateBorder("Right", new Vector2(screenTopRight.x + thickness / 2, 0), new Vector2(thickness, screenHeight + 2 * thickness));
-        CreateBorder("Middle", new Vector2((screenTopRight.x + thickness + 5f ) / 2, 0), new Vector2(thickness, screenHeight + 2 * thickness));
+        CreateBorder("Middle", new Vector2((screenTopRight.x + thickness + 3f ) / 2, 0), new Vector2(thickness, screenHeight + 2 * thickness));
         CreateBorder("Top", new Vector2(0, screenTopRight.y + thickness / 2), new Vector2(screenWidth + 2 * thickness, thickness));
         CreateBorder("Bottom", new Vector2(0, screenBottomLeft.y - thickness / 2), new Vector2(screenWidth + 2 * thickness, thickness));
     }
